@@ -20,6 +20,7 @@
     <modules>
         <module>ERP-mock</module>
         <module>CRM-mock</module>
+        <module>Intermediary-mock</module>
     </modules>
 
 
