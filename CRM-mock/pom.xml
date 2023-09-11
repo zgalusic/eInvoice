@@ -9,7 +9,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.superunknown</groupId>
     <artifactId>CRM-mock</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>CRM-mock</name>
