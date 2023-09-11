@@ -19,6 +19,7 @@
 
     <modules>
         <module>ERP-mock</module>
+        <module>CRM-mock</module>
     </modules>
 
 
