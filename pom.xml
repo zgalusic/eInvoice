@@ -21,6 +21,7 @@
         <module>ERP-mock</module>
         <module>CRM-mock</module>
         <module>Intermediary-mock</module>
+        <module>eInvoice-business</module>
     </modules>
 
 
