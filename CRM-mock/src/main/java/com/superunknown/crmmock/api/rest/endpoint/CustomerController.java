@@ -23,7 +23,12 @@ public class CustomerController {
 
         CrmResponse<Customer> customerCrmResponse = new CrmResponse<>();
 
-        // TODO
+        customerCrmResponse.setMessage("Customer successfully retrieved.");
+
+        Customer customer = new Customer();
+        customer.setId(id);
+        customer.setName("random name"); // TODO create random name
+        customerCrmResponse.setData(customer);
 
         return customerCrmResponse;
     }
