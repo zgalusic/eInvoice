@@ -1,9 +1,12 @@
-package com.superunknown.crmmock.business.model;
+package com.superunknown.model.dto;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serial;
 import java.io.Serializable;
 
-public class Customer implements Serializable {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class CustomerDto implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -6516209797715035830L;
