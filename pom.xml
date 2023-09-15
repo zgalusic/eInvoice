@@ -23,6 +23,7 @@
         <module>Intermediary-mock</module>
         <module>eInvoice-business</module>
         <module>eInvoice-common-model</module>
+        <module>eInvoice-recipient</module>
     </modules>
 
     <dependencies>
