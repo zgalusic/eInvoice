@@ -7,21 +7,21 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Producer {
+public class ErpJmsProducer {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(Producer.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(ErpJmsProducer.class);
 
-    @Value("${outgoing.erp-business.queue}")
+    @Value("${business.to.recipient.queue}")
     private String destination;
     private final JmsTemplate jmsTemplate;
 
-    public Producer(JmsTemplate jmsTemplate) {
+    public ErpJmsProducer(JmsTemplate jmsTemplate) {
         this.jmsTemplate = jmsTemplate;
     }
 
     public <T> void sendMessage(T message) {
 
-        LOGGER.info("Sending message from business to ERP.");
+        LOGGER.info("Sending message from business to ERP. Message = {} ", message);
         jmsTemplate.convertAndSend(destination, message);
     }
 }
