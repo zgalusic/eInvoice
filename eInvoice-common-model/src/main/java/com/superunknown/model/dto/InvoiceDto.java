@@ -44,4 +44,14 @@ public class InvoiceDto implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "InvoiceDto{" +
+                "id='" + id + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", totalAmount=" + totalAmount +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }
