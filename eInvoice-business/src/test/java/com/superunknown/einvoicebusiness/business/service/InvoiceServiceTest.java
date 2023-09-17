@@ -1,6 +1,7 @@
 package com.superunknown.einvoicebusiness.business.service;
 
 import com.superunknown.model.dto.InvoiceDto;
+import com.superunknown.model.dto.InvoiceStatus;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +20,7 @@ public class InvoiceServiceTest {
         InvoiceDto invoiceDto = new InvoiceDto();
         invoiceDto.setId("sdfsdf");
         invoiceDto.setCustomerId("dsf");
-        invoiceDto.setStatus("status");
+        invoiceDto.setInvoiceStatus(InvoiceStatus.READY);
         invoiceDto.setTotalAmount(BigDecimal.TEN);
 
         erpService.send(invoiceDto);

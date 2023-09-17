@@ -11,7 +11,7 @@ public class InvoiceDto implements Serializable {
     private String id;
     private String customerId;
     private BigDecimal totalAmount;
-    private String status;
+    private InvoiceStatus invoiceStatus;
 
     public String getId() {
         return id;
@@ -37,12 +37,12 @@ public class InvoiceDto implements Serializable {
         this.totalAmount = totalAmount;
     }
 
-    public String getStatus() {
-        return status;
+    public InvoiceStatus getInvoiceStatus() {
+        return invoiceStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        this.invoiceStatus = invoiceStatus;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class InvoiceDto implements Serializable {
                 "id='" + id + '\'' +
                 ", customerId='" + customerId + '\'' +
                 ", totalAmount=" + totalAmount +
-                ", status='" + status + '\'' +
+                ", invoiceStatus=" + invoiceStatus +
                 '}';
     }
 }
