@@ -1,0 +1,9 @@
+INSERT INTO invoice_status values (1, 'INCOMPLETE_DATA');
+INSERT INTO invoice_status values (2, 'READY');
+INSERT INTO invoice_status values (3, 'SENT');
+INSERT INTO invoice_status values (4, 'DELIVERED');
+INSERT INTO invoice_status values (5, 'FAILED');
+INSERT INTO invoice_status values (6, 'DELIVERED_SENT');
+INSERT INTO invoice_status values (7, 'FAILED_SENT');
+INSERT INTO invoice_status values (8, 'DELIVERED_NOTIFIED');
+INSERT INTO invoice_status values (9, 'FAILED_NOTIFIED');
