@@ -14,6 +14,13 @@ public class CustomerDto implements Serializable {
     private String id;
     private String name;
 
+    public CustomerDto() {}
+
+    public CustomerDto(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public String getId() {
         return id;
     }

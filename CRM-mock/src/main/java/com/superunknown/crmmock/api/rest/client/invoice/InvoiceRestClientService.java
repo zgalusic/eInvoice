@@ -1,9 +1,9 @@
 package com.superunknown.crmmock.api.rest.client.invoice;
 
 import com.superunknown.crmmock.api.rest.client.invoice.model.InvoiceResponse;
-import com.superunknown.crmmock.business.model.Customer;
+import com.superunknown.model.dto.CustomerDto;
 
 public interface InvoiceRestClientService {
 
-    InvoiceResponse update(Customer customer);
+    InvoiceResponse update(CustomerDto customerDto);
 }

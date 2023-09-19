@@ -1,8 +1,12 @@
 package com.superunknown.crmmock.business;
 
-import com.superunknown.crmmock.business.model.Customer;
+import com.superunknown.model.dto.CustomerDto;
+
+import java.util.List;
 
 public interface CustomerService {
 
-    void update(Customer customer);
+    void update(CustomerDto customerDto);
+    List<CustomerDto> findAll();
+    CustomerDto findById(String id);
 }
