@@ -1,8 +1,8 @@
 package com.superunknown.crmmock.api.rest.client.invoice;
 
 import com.superunknown.crmmock.api.rest.client.invoice.model.InvoiceResponse;
-import com.superunknown.crmmock.business.model.Customer;
 import com.superunknown.crmmock.config.RestClientConfig;
+import com.superunknown.model.dto.CustomerDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,11 +22,11 @@ public class InvoiceRestClientServiceTest {
     @Test
     void update() {
 
-        Customer customer = new Customer();
-        customer.setId("iahiuasd");
-        customer.setName("updated name");
+        CustomerDto customerDto = new CustomerDto();
+        customerDto.setId("iahiuasd");
+        customerDto.setName("updated name");
 
-        InvoiceResponse response = invoiceRestClientService.update(customer);
+        InvoiceResponse response = invoiceRestClientService.update(customerDto);
         assertNotNull(response);
     }
 }
