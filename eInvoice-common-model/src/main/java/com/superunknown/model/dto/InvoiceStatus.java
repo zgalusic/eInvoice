@@ -19,6 +19,15 @@ public enum InvoiceStatus {
         this.name = name;
     }
 
+    public static InvoiceStatus findById(int id) {
+        for (InvoiceStatus enumConstant : values()) {
+            if (enumConstant.getId() == id) {
+                return enumConstant;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant with ID " + id);
+    }
+
     public int getId() {
         return id;
     }
