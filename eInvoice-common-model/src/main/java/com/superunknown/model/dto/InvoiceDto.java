@@ -8,16 +8,26 @@ public class InvoiceDto implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 2115116446564092751L;
-    private String id;
+    private Long id;
     private String customerId;
     private BigDecimal totalAmount;
     private InvoiceStatus invoiceStatus;
 
-    public String getId() {
+    public InvoiceDto() {
+    }
+
+    public InvoiceDto(Long id, String customerId, BigDecimal totalAmount, InvoiceStatus invoiceStatus) {
+        this.id = id;
+        this.customerId = customerId;
+        this.totalAmount = totalAmount;
+        this.invoiceStatus = invoiceStatus;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
