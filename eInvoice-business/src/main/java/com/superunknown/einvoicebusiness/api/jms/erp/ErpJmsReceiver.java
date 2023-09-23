@@ -1,5 +1,6 @@
 package com.superunknown.einvoicebusiness.api.jms.erp;
 
+import com.superunknown.einvoicebusiness.business.service.InvoiceService;
 import com.superunknown.model.dto.InvoiceDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,12 @@ public class ErpJmsReceiver {
 
     private final Logger LOGGER = LoggerFactory.getLogger(ErpJmsReceiver.class);
 
+    private final InvoiceService invoiceService;
+
+    public ErpJmsReceiver(InvoiceService invoiceService) {
+        this.invoiceService = invoiceService;
+    }
+
     @JmsListener(destination = "${recipient.to.business.queue}")
     public <T> void receiveMessage(Message<T> message) {
 
@@ -22,6 +29,7 @@ public class ErpJmsReceiver {
         if(payload instanceof InvoiceDto) {
 
             LOGGER.info("New invoice received: {}", payload);
+            invoiceService.create( (InvoiceDto) payload);
 
         } else {
 

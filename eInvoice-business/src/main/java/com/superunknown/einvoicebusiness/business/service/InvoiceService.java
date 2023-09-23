@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface InvoiceService {
 
+    List<InvoiceDto> findAll();
+    Long create(InvoiceDto invoiceDto);
     void send(InvoiceDto invoiceDto);
     List<InvoiceStatusDto> findAllInvoiceStatuses();
 }

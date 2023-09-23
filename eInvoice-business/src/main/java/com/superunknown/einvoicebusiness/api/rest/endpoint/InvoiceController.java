@@ -2,6 +2,7 @@ package com.superunknown.einvoicebusiness.api.rest.endpoint;
 
 import com.superunknown.einvoicebusiness.business.service.InvoiceService;
 import com.superunknown.model.dto.CustomerDto;
+import com.superunknown.model.dto.InvoiceDto;
 import com.superunknown.model.dto.InvoiceStatusDto;
 import com.superunknown.model.wrapper.ResponseWrapper;
 import org.slf4j.Logger;
@@ -23,6 +24,20 @@ public class InvoiceController {
         this.invoiceService = invoiceService;
     }
 
+    @PostMapping
+    public ResponseWrapper<Void> createInvoice(@RequestBody InvoiceDto invoiceDto) {
+
+        LOGGER.info("Receiving invoice data for customer with ID: {}", invoiceDto.getCustomerId());
+
+        // TODO return id
+        long id = invoiceService.create(invoiceDto);
+
+        ResponseWrapper<Void> responseWrapper = new ResponseWrapper<>();
+        responseWrapper.setMessage("Invoice created.");
+
+        return responseWrapper;
+    }
+
     @PostMapping("/customer")
     public ResponseWrapper<Void> changeCustomerData(@RequestBody CustomerDto customerDto) {
 
@@ -31,6 +46,18 @@ public class InvoiceController {
         // TODO
         ResponseWrapper<Void> responseWrapper = new ResponseWrapper<>();
         responseWrapper.setMessage("Customer data updated.");
+
+        return responseWrapper;
+    }
+
+    @GetMapping("/all")
+    public ResponseWrapper<List<InvoiceDto>> findAll() {
+
+        List<InvoiceDto> invoiceDtoList = invoiceService.findAll();
+
+        ResponseWrapper<List<InvoiceDto>> responseWrapper = new ResponseWrapper<>();
+        responseWrapper.setMessage("All invoices fetched");
+        responseWrapper.setData(invoiceDtoList);
 
         return responseWrapper;
     }

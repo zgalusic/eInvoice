@@ -10,18 +10,18 @@ import java.util.Set;
 public class InvoiceStatus {
 
     @Id
-    private Long id;
+    private Integer id;
     @Basic
     @Column(name = "name")
     private String name;
     @OneToMany(mappedBy="invoiceStatus")
     private Set<Invoice> invoices = new HashSet<>();
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
