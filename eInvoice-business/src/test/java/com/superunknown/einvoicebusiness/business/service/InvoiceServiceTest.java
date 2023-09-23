@@ -18,7 +18,7 @@ public class InvoiceServiceTest {
     void send() {
 
         InvoiceDto invoiceDto = new InvoiceDto();
-        invoiceDto.setId("sdfsdf");
+        invoiceDto.setId(1L);
         invoiceDto.setCustomerId("dsf");
         invoiceDto.setInvoiceStatus(InvoiceStatus.READY);
         invoiceDto.setTotalAmount(BigDecimal.TEN);

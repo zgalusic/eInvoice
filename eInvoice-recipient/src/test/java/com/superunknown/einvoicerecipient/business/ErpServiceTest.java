@@ -20,7 +20,7 @@ public class ErpServiceTest {
     void send() {
 
         InvoiceDto invoiceDto = new InvoiceDto();
-        invoiceDto.setId("sdfsdf");
+        invoiceDto.setId(2L);
         invoiceDto.setCustomerId("dsf");
         invoiceDto.setInvoiceStatus(InvoiceStatus.INCOMPLETE_DATA);
         invoiceDto.setTotalAmount(BigDecimal.TEN);
