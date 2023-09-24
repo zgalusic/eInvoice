@@ -57,4 +57,10 @@ public class InvoiceServiceImpl implements InvoiceService {
                 .map(status -> new InvoiceStatusDto(status.getId(), status.getName()))
                 .toList();
     }
+
+    @Override
+    public void updateCustomerData(List<String> customerIds) {
+
+        // TODO
+    }
 }
