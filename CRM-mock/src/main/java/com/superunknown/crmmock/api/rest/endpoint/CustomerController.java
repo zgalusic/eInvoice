@@ -51,6 +51,20 @@ public class CustomerController {
         return customerCrmResponse;
     }
 
+    @GetMapping
+    public CrmResponse<List<CustomerDto>> fetchCustomersById(@RequestParam(value = "customerIds") List<String> customerIds) {
+
+        LOGGER.info("Fetch customers with ids: {} from CRM", customerIds);
+
+        CrmResponse<List<CustomerDto>> customerCrmResponse = new CrmResponse<>();
+
+        customerCrmResponse.setMessage("Customers successfully retrieved.");
+        List<CustomerDto> customerDtoList = customerService.findByIds(customerIds);
+        customerCrmResponse.setData(customerDtoList);
+
+        return customerCrmResponse;
+    }
+
     @PostMapping
     public CrmResponse<Void> update(@RequestBody CustomerDto customerDto) {
 

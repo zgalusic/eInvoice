@@ -51,4 +51,19 @@ public class CustomerServiceImpl implements CustomerService {
                 .findFirst()
                 .orElse(null);
     }
+
+    @Override
+    public List<CustomerDto> findByIds(List<String> customerIds) {
+
+        List<CustomerDto> retrievedCustomerDtos = new ArrayList<>();
+
+        customerDtoList
+                .forEach(customer -> {
+                     if(customerIds.contains(customer.getId())) {
+                         retrievedCustomerDtos.add(customer);
+                     }
+                });
+
+        return retrievedCustomerDtos;
+    }
 }

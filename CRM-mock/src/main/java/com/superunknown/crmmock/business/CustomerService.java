@@ -9,4 +9,5 @@ public interface CustomerService {
     void update(CustomerDto customerDto);
     List<CustomerDto> findAll();
     CustomerDto findById(String id);
+    List<CustomerDto> findByIds(List<String> customerIds);
 }
