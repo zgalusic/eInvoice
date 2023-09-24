@@ -11,4 +11,5 @@ public interface InvoiceDataManager {
     List<Invoice> findAll();
     long create(InvoiceDto invoiceDto);
     List<InvoiceStatus> findAllInvoiceStatuses();
+    List<String> findDistinctCustomerIds(Integer statusId);
 }

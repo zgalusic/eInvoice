@@ -45,4 +45,9 @@ public class InvoiceDataManagerImpl implements InvoiceDataManager {
 
         return invoiceStatusRepository.findAll();
     }
+
+    @Override
+    public List<String> findDistinctCustomerIds(Integer statusId) {
+        return invoiceRepository.findDistinctCustomerIds(statusId);
+    }
 }
