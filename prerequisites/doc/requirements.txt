@@ -1,0 +1,37 @@
+- Assignment #12: e-invoice architecture proposal
+
+Your task is to describe one or more architectural solutions for the problem stated later. For the
+description, you can use drawings, plain text, and pseudo code. If you find out that your task is
+not fully specified, make assumptions to complete specification to the point needed to offer a
+viable solution.
+
+- Problem
+
+A company plans to introduce an eInvoicing process. Meaning, invoices will be sent in an
+electronic way to an intermediary, which will deliver invoices to the company’s customers.
+The company has two systems that will participate in the eInvoice process as a source of invoice
+data. ERP system, which is in charge of creating an invoice in a financial sense and CRM that
+holds customer data needed to be presented on eInvoice. Both systems are capable of issuing
+HTTPS REST calls to the external system triggered by the following business events:
+1. CRM emits the CustomerDataChange event when any customer field changes. Every event holds complete customer data.
+2. ERP emits the InvoiceCreated event. The event holds all invoice details except customer details.
+But it holds a reference to the customer in the form of a customerId field.
+CRM and ERP are legacy systems which cannot be modified and can only send events via HTTP
+calls.
+
+The intermediary is a proprietary third-party system that has two REST API endpoints. The one is
+for delivering eInvoice, and the other one is for checking invoice status. Intermediary delivery
+REST endpoint on POST request returns transmissionReference, which is used to pool invoice
+status from the intermediary status endpoint. The intermediary can return the following
+statuses processing, delivered, and failed. Users on ERP have to be notified about failed and
+successful delivery. ERP has a REST API endpoint, which can be called to update invoice delivery
+status. Intermediary service is a third party application & cannot be modified.
+
+- Non-functional requirements, restrictions, tips
+
+1. Take into account that ERP can be unavailable at some point. At least because of maintenance.
+2. Take into account that the intermediary can be unavailable at some point. At least because of maintenance.
+3. The invoice volume is 10k per month. Will your solution differ if the volume grows to 10M per month?
+4. Different customers 10k
+5. We need the highest possible reliability
+6. We suggest a microservice approach
